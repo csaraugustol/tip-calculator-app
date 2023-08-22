@@ -1,17 +1,197 @@
 :root {
+    --color-dark-grayish-cyan: hsl(186, 14%, 43%);
+    --color-grayish-cyan: hsl(184, 14%, 56%);
+    --color-light-grayish-cyan: hsl(185, 41%, 84%);
+    --color-red: hsl(0, 100%, 50%);
     --color-strong-cyan: hsl(172, 67%, 45%);
-    --very-dark-cyan: hsl(183, 100%, 15%);
-    --dark-grayish-cyan: hsl(186, 14%, 43%);
-    --grayish-cyan: hsl(184, 14%, 56%);
-    --light-grayish-cyan: hsl(185, 41%, 84%);
-    --very-light-grayish-cyan: hsl(189, 41%, 97%);
-    --white: hsl(0, 0%, 100%);
-    --red: hsl(0, 100%, 50%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-very-dark-cyan: hsl(183, 100%, 15%);
+    --color-very-light-grayish-cyan: hsl(189, 41%, 97%);
     --font: 'Space Mono', monospace;
 }
 
 body {
-    font-family: var(--font);
+    background-color: var(--color-light-grayish-cyan);
+    color: var(--color-dark-grayish-cyan);
+    font-family: var(--font) !important;
     font-weight: 700;
-    color: var(--very-dark-cyan);
+}
+
+.font-sm {
+    font-family: 'Space Mono' !important;
+}
+
+.title {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    letter-spacing: 12px;
+    margin: 24px 0;
+}
+
+.container {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.sub-title {
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+input {
+    background: var(--color-very-light-grayish-cyan);
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    color: var(--color-very-dark-cyan);
+    font-weight: 700;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 16px !important;
+    width: 94%;
+}
+
+
+.input-nop {
+    margin-bottom: 24px;
+}
+
+input:focus {
+    outline: none;
+    border: 3px solid var(--color-strong-cyan) !important;
+}
+
+input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--color-grayish-cyan);
+}
+
+.select-tip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: var(--color-very-dark-cyan);
+    color: var(--color-white);
+    width: 47%;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    margin: 8px 0;
+    height: 39px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+.input-custom {
+    width: 41%;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    margin: 8px 0;
+    height: 38px;
+    font-weight: 600;
+}
+
+.result {
+    background-color: var(--color-very-dark-cyan);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.result .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result .line .line-description {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+}
+
+.result .line .line-description .description {
+    color: var(--color-white) !important;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.result .line .line-description .sec-description {
+    font-size: 12px;
+    color: var(--color-grayish-cyan);
+}
+
+.result .line .value {
+    font-size: 24px;
+    color: var(--color-strong-cyan);
+}
+
+.result button {
+    background-color: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+    width: 100%;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 16px;
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        width: 75%;
+    }
+
+    .container-1, .container-2 {
+        width: 50%;
+    }
+
+    .container-1 {
+        margin-right: 24px;
+    }
+
+    button {
+        width: 30%;
+        font-size: 20px;
+        margin: 8px 0;
+        height: 39px;
+    }
+    
+    .input-custom {
+        width: 23%;
+    }
+
+    .result {
+        height: 87%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 24px;
+    }
+
+    .result .second-line {
+        margin-top: 32px;
+    }
+
+    .result .line .value {
+        font-size: 36px;
+    }
 }
