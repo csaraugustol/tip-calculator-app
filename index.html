@@ -45,12 +45,12 @@
       <div class="sub-title">Select Tip %</div>
 
       <div class="select-tip">
-        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.05, event)">5%</button>
-        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.10, event)">10%</button>
-        <button id="btn-selected" class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.15, event)">15%</button>
-        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.25, event)">25%</button>
-        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.50, event)">50%</button>
-        <input id="input-custom" class="input-custom button" type="text" placeholder="Custom" maxlength="3" onkeyup="tipWasSelected('', event)" style="font-family: 'Space Mono';"/>
+        <button id="btn-5-perc" class="" type="button" style="font-family: 'Space Mono';">5%</button>
+        <button id="btn-10-perc" class="" type="button" style="font-family: 'Space Mono';">10%</button>
+        <button id="btn-15-perc" class="" type="button" style="font-family: 'Space Mono';">15%</button>
+        <button id="btn-25-perc" class="" type="button" style="font-family: 'Space Mono';">25%</button>
+        <button id="btn-50-perc" class="" type="button" style="font-family: 'Space Mono';">50%</button>
+        <input id="input-custom" class="input-custom button" type="text" placeholder="Custom" maxlength="3" onkeyup="tipWasSelected(event)" style="font-family: 'Space Mono';"/>
       </div>
 
       <div class="sub-title">Number of People <span id="error-message" style="color: var(--color-red); font-size: 12px; display: none;">Can't be zero</span> </div>

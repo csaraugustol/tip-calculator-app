@@ -5,8 +5,46 @@ $(document).ready(function () {
 
 var inputNumberOfPeople = document.getElementById("input-number-of-people");
 var billValue = document.getElementById("input-bill");
+var inputCustom = document.getElementById("input-custom").value
 
-function tipWasSelected(value, e) {
+var btn5Perc = document.getElementById("btn-5-perc");
+var btn10Perc = document.getElementById("btn-10-perc");
+var btn15Perc = document.getElementById("btn-15-perc");
+var btn25Perc = document.getElementById("btn-25-perc");
+var btn50Perc = document.getElementById("btn-50-perc");
+
+btn5Perc.addEventListener('click', function (e) {
+  addRemoveClass(e)
+  selectValues(0.05)
+  finalCalc(inputNumberOfPeople, billValue, 0.05)
+})
+
+btn10Perc.addEventListener('click', function (e) {
+  addRemoveClass(e)
+  selectValues(0.10)
+  finalCalc(inputNumberOfPeople, billValue, 0.10)
+})
+
+btn15Perc.addEventListener('click', function (e) {
+  addRemoveClass(e)
+  selectValues(0.15)
+  finalCalc(inputNumberOfPeople, billValue, 0.15)
+})
+
+btn25Perc.addEventListener('click', function (e) {
+  addRemoveClass(e)
+  selectValues(0.25)
+  finalCalc(inputNumberOfPeople, billValue, 0.25)
+})
+
+btn50Perc.addEventListener('click', function (e) {
+  addRemoveClass(e)
+  selectValues(0.50)
+  finalCalc(inputNumberOfPeople, billValue, 0.50)
+})
+
+function addRemoveClass(e)
+{
   inputNumberOfPeople.disabled = false;
   
   var classList = e.target.classList;
@@ -20,13 +58,14 @@ function tipWasSelected(value, e) {
     );
     classList.add("active")
   }
+}
 
-  if (value == "") {
-    valueCustom = e.target.value / 100;
-    selectValues(valueCustom)
-  } else {
-    selectValues(value)
-  }
+function tipWasSelected(e) {
+  valueCustom = e.target.value / 100;
+
+  addRemoveClass(e)
+  selectValues(valueCustom)
+  finalCalc(inputNumberOfPeople, billValue, valueCustom)
 }
 
 function selectValues(tipPercent) {
@@ -44,7 +83,7 @@ function selectValues(tipPercent) {
 function limpaCampos() {
   inputNumberOfPeople.value = "";
   billValue.value = "";
-  document.getElementById("input-custom").value = "";
+  inputCustom.value = "";
   document.getElementById("tipAmount").innerHTML = "$0.00";
   document.getElementById("total").innerHTML = "$0.00";
   inputNumberOfPeople.disabled = true;
