@@ -1,17 +1,15 @@
 $(document).ready(function () {
-  $('.money').mask('000,000,000,000,000.00', { reverse: true });
+  $('.money').mask('#,##0.00', { reverse: true });
   $('.input-custom').mask('00', { reverse: true });
 });
 
 var inputNumberOfPeople = document.getElementById("input-number-of-people");
 var billValue = document.getElementById("input-bill");
-let tipPercent = 0.0;
 
 function tipWasSelected(value, e) {
-  document.getElementById("input-number-of-people").disabled = false;
+  inputNumberOfPeople.disabled = false;
   
   var classList = e.target.classList;
-  tipPercent = value;
   var classActive = document.getElementsByClassName("active");
 
   if (classActive.length == 0) {
@@ -44,11 +42,12 @@ function selectValues(tipPercent) {
 
 
 function limpaCampos() {
-  document.getElementById("input-number-of-people").value = "";
-  document.getElementById("input-bill").value = "";
+  inputNumberOfPeople.value = "";
+  billValue.value = "";
   document.getElementById("input-custom").value = "";
-  document.getElementById("tipAmount").innerHTML = "$0.0";
-  document.getElementById("total").innerHTML = "$0.0";
+  document.getElementById("tipAmount").innerHTML = "$0.00";
+  document.getElementById("total").innerHTML = "$0.00";
+  inputNumberOfPeople.disabled = true;
 
   Array.from(document.querySelectorAll('.active')).forEach(
     (el) => el.classList.remove('active')
