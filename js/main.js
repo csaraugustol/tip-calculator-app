@@ -5,7 +5,6 @@ $(document).ready(function () {
 
 let tipPercent = 0.0;
 
-
 function tipWasSelected(value, e) {
   var classList = e.target.classList;
   tipPercent = value;
@@ -32,18 +31,10 @@ function calc(tipPercent) {
   const inputNumberOfPeople = document.getElementById("input-number-of-people");
 
    var billValue = document.getElementById("input-bill");
-   
-    let teste = 0.0;
-    let teste2 = 0.0;
-
-    teste2 = billValue.addEventListener('keyup', function (e) {
-    console.log(e.target.value)
-    teste = e.target.value;
+    
+   billValue.addEventListener('keyup', function (e) {
     return e.target.value;
   })
-    console.log("TRes ", teste)
-    console.log("TRes2 ", teste2)
-
 
   inputNumberOfPeople.addEventListener('keyup', function (e) {
     numberOfPeople = e.target.value;
