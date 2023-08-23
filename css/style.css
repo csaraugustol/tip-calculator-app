@@ -65,7 +65,7 @@ input {
 
 input:focus {
     outline: none;
-    border: 3px solid var(--color-strong-cyan) !important;
+    border: 3px solid var(--color-strong-cyan);
 }
 
 input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -92,8 +92,13 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.active {
     background-color: var(--color-strong-cyan);
+    color: var(--color-very-dark-cyan);
+}
+
+button:hover {
+    background-color: var(--color-light-grayish-cyan);
     color: var(--color-very-dark-cyan);
 }
 
@@ -150,6 +155,10 @@ button:hover {
     margin-top: 16px;
 }
 
+.result button:hover {
+    background-color: var(--color-light-grayish-cyan);
+}
+
 @media screen and (min-width: 768px) {
     body {
         display: flex;
@@ -157,6 +166,7 @@ button:hover {
         align-items: center;
         justify-content: center;
         height: 100vh;
+        overflow-y: hidden;
     }
 
     .container {
@@ -197,5 +207,12 @@ button:hover {
 
     .result .line .value {
         font-size: 36px;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        display: flex;
+        width: 30%;
     }
 }

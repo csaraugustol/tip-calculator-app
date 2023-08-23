@@ -35,32 +35,32 @@
     <img src="images/logo.svg"/>
   </div>
   <div class="container">
-    <div class="container-1" style="background-color: #dfdcdcs">
+    <div class="container-1">
       <div class="sub-title">Bill</div>
       <div class="input-icon">
         <img class="icon" src="images/icon-dollar.svg"/>
-        <input placeholder="0" class="money" type="text" style="font-family: 'Space Mono';"/>
+        <input id="input-bill" placeholder="0" class="money" type="text" style="font-family: 'Space Mono';" onkeyup="billValue()"/>
       </div>
 
       <div class="sub-title">Select Tip %</div>
 
       <div class="select-tip">
-        <button type="button" style="font-family: 'Space Mono';">5%</button>
-        <button type="button" style="font-family: 'Space Mono';">10%</button>
-        <button type="button" style="font-family: 'Space Mono';">15%</button>
-        <button type="button" style="font-family: 'Space Mono';">25%</button>
-        <button type="button" style="font-family: 'Space Mono';">50%</button>
-        <input class="input-custom button" type="text" placeholder="Custom" maxlength="3"  style="font-family: 'Space Mono';"/>
+        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.05, event)">5%</button>
+        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.10, event)">10%</button>
+        <button id="btn-selected" class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.15, event)">15%</button>
+        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.25, event)">25%</button>
+        <button class="" type="button" style="font-family: 'Space Mono';" onclick="tipWasSelected(0.50, event)">50%</button>
+        <input id="input-custom" class="input-custom button" type="text" placeholder="Custom" maxlength="3" onkeyup="tipWasSelected('', event)" style="font-family: 'Space Mono';"/>
       </div>
 
-      <div class="sub-title">Number of People</div>
+      <div class="sub-title">Number of People <span id="error-message" style="color: var(--color-red); font-size: 12px; display: none;">Can't be zero</span> </div>
       <div class="input-icon">
         <img class="icon" src="images/icon-person.svg"/>
-        <input placeholder="0" class="input-nop" type="text" style="font-family: 'Space Mono';"/>
+        <input id="input-number-of-people" placeholder="0" class="input-nop" type="text" style="font-family: 'Space Mono';"/>
       </div>
     </div>
 
-    <div class="container-2" style="background-color: #e9e9e9s">
+    <div class="container-2">
       <div class="result">
         <div>
           <div class="line">
@@ -69,7 +69,7 @@
               <span class="sec-description">/ person</span>
             </div>
             <div>
-              <span class="value">$0.00</span>
+              <span id="tipAmount" class="value money">$0.00</span>
             </div>
           </div>
           <div class="line second-line">
@@ -78,12 +78,12 @@
               <span class="sec-description">/ person</span>
             </div>
             <div>
-              <span class="value">$0.00</span>
+              <span id="total" class="value money">$0.00</span>
             </div>
           </div>
         </div>
         <div>
-          <button type="button">RESET</button>
+          <button onclick="limpaCampos()" type="button">RESET</button>
         </div>
       </div>
     </div>
