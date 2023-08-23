@@ -159,7 +159,7 @@ button:hover {
     background-color: var(--color-light-grayish-cyan);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 572px) {
     body {
         display: flex;
         flex-direction: column;
@@ -210,9 +210,33 @@ button:hover {
     }
 }
 
+@media screen and (min-width: 992px) {
+    .input-custom {
+        width: 25%;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+    .input-custom {
+        width: 26%;
+    }
+
+}
+
 @media screen and (min-width: 1400px) {
     .container {
         display: flex;
-        width: 30%;
+        width: 45%;
+    }
+
+    .input-custom {
+        width: 23%;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .input-custom {
+        width: 27%;
     }
 }
