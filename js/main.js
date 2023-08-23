@@ -3,9 +3,13 @@ $(document).ready(function () {
   $('.input-custom').mask('00', { reverse: true });
 });
 
+var inputNumberOfPeople = document.getElementById("input-number-of-people");
+var billValue = document.getElementById("input-bill");
 let tipPercent = 0.0;
 
 function tipWasSelected(value, e) {
+  document.getElementById("input-number-of-people").disabled = false;
+  
   var classList = e.target.classList;
   tipPercent = value;
   var classActive = document.getElementsByClassName("active");
@@ -21,53 +25,20 @@ function tipWasSelected(value, e) {
 
   if (value == "") {
     valueCustom = e.target.value / 100;
-    calc(valueCustom)
+    selectValues(valueCustom)
   } else {
-    calc(value)
+    selectValues(value)
   }
 }
 
-function calc(tipPercent) {
-  const inputNumberOfPeople = document.getElementById("input-number-of-people");
+function selectValues(tipPercent) {
 
-   var billValue = document.getElementById("input-bill");
-    
    billValue.addEventListener('keyup', function (e) {
-    return e.target.value;
+    finalCalc(inputNumberOfPeople, billValue, tipPercent)
   })
 
   inputNumberOfPeople.addEventListener('keyup', function (e) {
-    numberOfPeople = e.target.value;
-  console.log("nsad ", numberOfPeople)
-
-    if (numberOfPeople == 0) {
-      document.getElementById("error-message").style.display = "block";
-      inputNumberOfPeople.style.borderColor = "red";
-    } else {
-      document.getElementById("error-message").style.display = "none";
-      inputNumberOfPeople.style.borderColor = "var(--color-strong-cyan)";
-    }
-
-
-    var billPercenteValue = billValue.value.replace(',', '') * tipPercent;
-    var tipAmount = billPercenteValue / numberOfPeople;
-    var totalPerson = tipAmount + (billValue.value.replace(',', '') / numberOfPeople);
-
-    if (numberOfPeople > 0) {
-      document.getElementById("tipAmount").innerHTML = tipAmount.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      });;
-
-      document.getElementById("total").innerHTML = totalPerson.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD'
-      });;
-    } else {
-      document.getElementById("tipAmount").innerHTML = "$0.0";
-      document.getElementById("total").innerHTML = "$0.0";
-    }
-
+    finalCalc(inputNumberOfPeople, billValue, tipPercent)
   });
 }
 
@@ -82,6 +53,39 @@ function limpaCampos() {
   Array.from(document.querySelectorAll('.active')).forEach(
     (el) => el.classList.remove('active')
   );
+}
+
+function finalCalc(inputNumberOfPeople, billValue, tipPercent)
+{
+  var numberOfPeople = inputNumberOfPeople.value;
+
+  if (numberOfPeople == 0) {
+    document.getElementById("error-message").style.display = "block";
+    inputNumberOfPeople.style.borderColor = "red";
+  } else {
+    document.getElementById("error-message").style.display = "none";
+    inputNumberOfPeople.style.borderColor = "var(--color-strong-cyan)";
+  }
+
+
+  var billPercenteValue = billValue.value.replace(',', '') * tipPercent;
+  var tipAmount = billPercenteValue / numberOfPeople;
+  var totalPerson = tipAmount + (billValue.value.replace(',', '') / numberOfPeople);
+
+  if (numberOfPeople > 0) {
+    document.getElementById("tipAmount").innerHTML = tipAmount.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });;
+
+    document.getElementById("total").innerHTML = totalPerson.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });;
+  } else {
+    document.getElementById("tipAmount").innerHTML = "$0.0";
+    document.getElementById("total").innerHTML = "$0.0";
+  }
 }
 
 
